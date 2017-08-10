@@ -6,9 +6,10 @@
   <script src="angularApp.js"> </script>
 </head>
 
-
 <body ng-app="myTwitter" ng-controller="myTweetscntrl">
+
   <h1>  My Tweets </h1>
+  <ui-view></ui-view>
 
   <div ng-repeat="tweet in myTweets | orderBy: 'tweetId'">
     {{tweet.tweetId}}) {{tweet.myTweet}} {{date | date:'yyyy-MM-dd'}}

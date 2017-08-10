@@ -1,44 +1,59 @@
 angular.module('myTwitter', ['ui.router'])
-.config(function($stateProvider, $urlRouterProvider){
-  //$urlRouterProvider.otherwise('homexyz');
-  $stateProvider
-  .state('home', {
-    url: '/home',
-    templateUrl: 'home.html',
-    controller: 'Maincntrl'
-  })
-
-  .state('tweets', {
+.config(function($stateProvider){
+  var myTweetsState = {
+    name: 'myTweets',
     url: '/myTweets',
-    templateUrl: 'myTweets.html',
-    controller: 'myTweetscntrl'
-  })
+    templateUrl: '/myTweets.html'
+  }
 
-  .state('following', {
-    url: '/following',
-    templateUrl: 'following.html',
-    controller: 'followingcntrl'
-  })
-
-  .state('followers', {
-    url: '/followers',
-    templateUrl: 'followers.html',
-    controller: 'followerscntrl'
-  })
+  var homeState = {
+    name: 'home',
+    url: '/home',
+    templateUrl: '/homePage.html'
+  }
+  $stateProvider.state(myTweetsState);
+})
+/*
+$stateProvider
+.state('home', {
+url: '/home',
+templateUrl: 'home.html',
+controller: 'Maincntrl'
 })
 
+.state('tweets', {
+url: '/myTweets',
+templateUrl: 'myTweets.html',
+controller: 'myTweetscntrl'
+})
 
-//.factory('tweetContent', [function(){
-//  var toPersist = {
-//    tweetContent: []
-//  };
-//  return toPersist;
-//}])
+.state('following', {
+url: '/following',
+templateUrl: 'following.html',
+controller: 'followingcntrl'
+})
+
+.state('followers', {
+url: '/followers',
+templateUrl: 'followers.html',
+controller: 'followerscntrl'
+})
+})
+
+*/
+
+
+.factory('myTweets', [function(){
+  var toPersist = {
+    myTweets: []
+  };
+  return toPersist;
+}])
 
 
 .controller('Maincntrl', [
   '$scope',
-  function($scope, tweetContent){
+  function($scope){
 
 
     $scope.homePageContents =
@@ -52,34 +67,27 @@ angular.module('myTwitter', ['ui.router'])
 
 .controller ('myTweetscntrl', [
   '$scope',
-//  'tweetContent',
-  function($scope, tweetContent){
+  'myTweets',
+  function($scope, myTweets){
     $scope.date = new Date();
 
-//    $scope.tweetContent = tweetContent.tweetContent;
+    //    $scope.tweetContent = tweetContent.tweetContent;
 
-    $scope.myTweets = [
-      {tweetId: 1,
-        myTweet: 'welcome'
-      },
-      {tweetId: 2,
-        myTweet: 'Hello'
-      },
-      {tweetId: 3,
-        myTweet: 'Bye'
-      }
-    ]
+    $scope.myTweets = myTweets.myTweets;
 
-/*    $scope.addTweet = function(){
+    $scope.addTweet = function(){
+
       if($scope.tweet === ''){
         return;
       }
-      $scope.tweetContent.push({
-        tweetId: 5,
-        myTweet: $scope.tweet
-      });
+
+      $scope.myTweets.push({tweetId: 4, myTweet: $scope.tweet})
+      //      $scope.tweetContent.push({
+      //        tweetId: 5,
+      //        myTweet: $scope.tweet
+      //      });
       $scope.tweet='';
-    }*/
+    }
   }
 ])
 .controller('followingcntrl',[
