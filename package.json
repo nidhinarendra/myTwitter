@@ -1,0 +1,24 @@
+{
+  "name": "mytwitter",
+  "version": "1.0.0",
+  "description": "Replica of twitter using MEAN stack",
+  "main": "nodeApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nidhinarendra/myTwitter.git"
+  },
+  "author": "Nidhi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nidhinarendra/myTwitter/issues"
+  },
+  "homepage": "https://github.com/nidhinarendra/myTwitter#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.3"
+  }
+}

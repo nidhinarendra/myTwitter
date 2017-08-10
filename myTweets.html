@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>myTweets </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+  <script src="angularApp.js"> </script>
+</head>
+
+
+<body ng-app="myTwitter" ng-controller="myTweetscntrl">
+  <h1>  My Tweets </h1>
+
+  <div ng-repeat="tweet in myTweets | orderBy: 'tweetId'">
+    {{tweet.tweetId}}) {{tweet.myTweet}} {{date | date:'yyyy-MM-dd'}}
+  </div>
+
+  <form ng-submit="addTweet()">
+    <input type="text" placeholder="Add a tweet" ng-model="tweet"/>
+    <button type="submit"> Post </button>
+  </form>
+
+</body>
+
+</html>

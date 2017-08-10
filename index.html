@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title> myTwitter! </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+  <script src="angularApp.js"> </script>
+</head>
+
+<body ng-app="myTwitter" ng-controller="Maincntrl">
+  <div>
+
+    <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+    <div ui-view></div>
+
+</div>
+
+<script type="text/ng-template" id="home.html">  </script>
+  <div>
+    User: {{homePageContents.user}} <br />
+    Tweets:
+
+    <a href="myTweets.html">
+       {{homePageContents.tweets}}<br />
+     </a>
+    Folowing:
+    <a href="following.html">
+      {{homePageContents.following}}<br />
+    </a>
+    Followers:
+    <a href="followers.html">
+      {{homePageContents.followers}}<br />
+    </a>
+
+  </div>
+
+</body>
+
+</html>
